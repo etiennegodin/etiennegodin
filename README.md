@@ -18,7 +18,6 @@ Goal: reduce expert review time wasted on low-impact observations and accelerate
 
 A production-style binary classifier that scores "Needs ID" plant observations in Québec on their probability of reaching Research Grade — helping triage expert identifier time toward the observations most likely to benefit from it.
 
-- ROC-AUC 0.88 · 98.2% precision @ top-500 (review budget framing)
 - Explicit handling of temporal leakage across labels, features, and validation
 - Point-in-time label reconstruction via reimplementation of the iNaturalist community taxon algorithm (DuckDB macro)
 - Taxon difficulty modeling (Bayesian shrinkage) · species confusion graph (DuckPGQ)
