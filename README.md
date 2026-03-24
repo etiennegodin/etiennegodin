@@ -42,7 +42,7 @@ Python · SQL · DuckDB · LightGBM · scikit-learn · Optuna · MLflow · SHAP 
 ## Background
 
 Previously: Lookdev Technical Director at Framestore (8 years)  
-Worked on look development for CG assets across major film and episodic productions including *How to Train Your Dragon*, *Foundation*, *Fallout* and others    
+Worked on look development for CG assets across major film and episodic productions including *How to Train Your Dragon*, *Fallout SE1*, *Captain Marvel* and others    
 
 ---
 
