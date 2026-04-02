@@ -14,14 +14,14 @@ Starting a B.Sc. in Computer Science & Mathematics at Université de Montréal i
 ### [inat-obs-scorer](https://github.com/etiennegodin/inat-obs-scorer)
 **Expert review prioritization engine for iNaturalist**
 
-Goal: reduce expert review time wasted on low-impact observations and accelerate biodiversity data validation.
+A production-style ML pipeline that scores Québec plant observations on their probability of reaching Research Grade — routing expert identifier attention toward observations that need it most.
 
-A production-style binary classifier that scores "Needs ID" plant observations in Québec on their probability of reaching Research Grade — helping triage expert identifier time toward the observations most likely to benefit from it.
+Top 5% of scored observations yield **3.29× lift at 94% precision** on held-out 2024 data.
 
-- Explicit handling of temporal leakage across labels, features, and validation
-- Point-in-time label reconstruction via reimplementation of the iNaturalist community taxon algorithm (DuckDB macro)
-- Taxon difficulty modeling (Bayesian shrinkage) · species confusion graph (DuckPGQ)
-- End-to-end pipeline: LightGBM + Optuna + MLflow + async API enrichment
+- Point-in-time feature engineering with temporal train/val/test splits and gap buffers — no leakage across labels, features, or validation
+- Label reconstruction via reimplementation of the iNaturalist community taxon algorithm (DuckDB macro)
+- Bayesian shrinkage at taxon, observer, and observer×taxon levels · species confusion graph with 22k edges (DuckPGQ)
+- End-to-end pipeline: LightGBM · Optuna · MLflow · DVC
 
 ---
 
