@@ -12,16 +12,21 @@ Starting a B.Sc. in Computer Science & Mathematics at Université de Montréal i
 ## What I'm working on
 
 ### [inat-obs-scorer](https://github.com/etiennegodin/inat-obs-scorer)
-**Expert review prioritization engine for iNaturalist**
+Probabilistic ranking engine for iNaturalist expert review queues.
 
-A production-style ML pipeline that scores Québec plant observations on their probability of reaching Research Grade — routing expert identifier attention toward observations that need it most.
+A production-style ML pipeline designed to solve the "discovery gap" for Québec plant observations—routing expert identifier attention toward observations cases that fail to self-resolve within 7 days.
 
-Top 5% of scored observations yield **3.29× lift at 94% precision** on held-out 2024 data.
+Performance: 3.29× lift at 94% precision (top 5% of test set; $n=1,374$) on held-out 2024 data.
 
-- Point-in-time feature engineering with temporal train/val/test splits and gap buffers — no leakage across labels, features, or validation
-- Label reconstruction via reimplementation of the iNaturalist community taxon algorithm (DuckDB macro)
-- Bayesian shrinkage at taxon, observer, and observer×taxon levels · species confusion graph with 22k edges (DuckPGQ)
-- End-to-end pipeline: LightGBM · Optuna · MLflow · DVC
+Operational Flexibility: Designed for varying reviewer bandwidth with configurable operating points: High-Recall (90%) for broad discovery and Balanced (75%) for high-confidence queue management.
+
+Engineering Rigor: Implements a strict temporal split strategy with gap buffers to mitigate four distinct leakage vectors (Label, Feature, Split, and CV).
+
+Domain Logic: Re-derives Research Grade labels via a DuckDB table macro implementing the iNaturalist community taxon algorithm.
+
+Feature Engineering: Leverages Bayesian-shrunk observer/taxon history and species confusion graph topology (55k edges) via DuckPGQ.
+
+Stack: Python (3.12), DuckDB, LightGBM, Optuna, MLflow, DVC.
 
 ---
 
